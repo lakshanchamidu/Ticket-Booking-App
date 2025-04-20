@@ -1,5 +1,6 @@
 package com.example.ticketbookingapp.Activites.Splash
 
+
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
@@ -8,12 +9,14 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -27,9 +30,9 @@ import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.example.ticketbookingapp.MainActivity
 import com.example.ticketbookingapp.R
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
-@SuppressLint("CustomSplashScreen")
-class SplashActivity : ComponentActivity() {
+class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -43,19 +46,24 @@ class SplashActivity : ComponentActivity() {
 @Preview
 @Composable
 fun SplashScreen(onGetStartedClick:()-> Unit={}) {
-    Column(modifier = Modifier.fillMaxSize()) {
-        ConstraintLayout(modifier = Modifier.fillMaxSize()) {
+    StatusBarTop()
+    Column(modifier = Modifier
+        .fillMaxSize()
+        ) {
+        ConstraintLayout() {
             val (backgroundImg, title, subtitle, startbtn) = createRefs()
 
             Image(
                 painter = painterResource(R.drawable.splash_bg),
                 contentDescription = null,
+                contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .constrainAs(backgroundImg) {
                         top.linkTo(parent.top)
                         start.linkTo(parent.start)
                     }
                     .fillMaxSize()
+
             )
 
 
@@ -101,6 +109,18 @@ fun SplashScreen(onGetStartedClick:()-> Unit={}) {
                 GradientButton(onClick = onGetStartedClick, "Get Started", 32)
             }
         }
+    }
+}
+@Composable
+fun StatusBarTop(){
+    val systemUiController = rememberSystemUiController()
+
+    SideEffect {
+        systemUiController.setStatusBarColor(
+            color = Color.Transparent,
+            darkIcons = false
+
+        )
     }
 }
 
