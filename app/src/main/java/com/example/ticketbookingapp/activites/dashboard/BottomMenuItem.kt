@@ -1,4 +1,4 @@
-package com.example.ticketbookingapp.Activites.Dashboard
+package com.example.ticketbookingapp.activites.dashboard
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.padding

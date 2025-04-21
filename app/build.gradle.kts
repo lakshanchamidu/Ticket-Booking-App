@@ -50,6 +50,8 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation (libs.material3)
+
     implementation(libs.firebase.database)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

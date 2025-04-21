@@ -1,4 +1,4 @@
-package com.example.ticketbookingapp.Activites.Dashboard
+package com.example.ticketbookingapp.activites.dashboard
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable

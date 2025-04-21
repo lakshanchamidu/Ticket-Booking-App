@@ -1,4 +1,4 @@
-package com.example.ticketbookingapp.Activites.Splash
+package com.example.ticketbookingapp.activites.splash
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
